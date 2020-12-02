@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uet.oop.bomberman.entities.character.enemy;
 
 import uet.oop.bomberman.Board;
-import uet.oop.bomberman.entities.character.enemy.ai.AILow;
 import uet.oop.bomberman.entities.character.enemy.ai.AIMedium;
 import uet.oop.bomberman.graphics.Sprite;
 
-/**
- *
- * @author TUNG318
- */
 public class Doll extends Enemy{
 
     public Doll(int x, int y, Board board) {

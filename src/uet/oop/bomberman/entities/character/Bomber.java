@@ -1,22 +1,22 @@
 package uet.oop.bomberman.entities.character;
 
-import java.util.ArrayList;
 import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
-import uet.oop.bomberman.entities.bomb.Bomb;
-import uet.oop.bomberman.graphics.Screen;
-import uet.oop.bomberman.graphics.Sprite;
-import uet.oop.bomberman.input.Keyboard;
-
-import java.util.Iterator;
-import java.util.List;
 import uet.oop.bomberman.entities.LayeredEntity;
+import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.character.enemy.Enemy;
 import uet.oop.bomberman.entities.tile.item.Item;
+import uet.oop.bomberman.graphics.Screen;
+import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.input.Keyboard;
 import uet.oop.bomberman.level.Coordinates;
 import uet.oop.bomberman.sound.Sound;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Bomber extends Character {
 
@@ -117,7 +117,7 @@ public class Bomber extends Character {
     public void kill() {
         if (!_alive) return;
         _alive = false;
-        Sound.play("endgame3");
+//        Sound.play("endgame3");
     }
 
     @Override

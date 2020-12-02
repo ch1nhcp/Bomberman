@@ -18,8 +18,8 @@ public class Game extends Canvas {
     
 
 	public static final int TILES_SIZE = 16,
-							WIDTH = TILES_SIZE * (31 / 2),
-							HEIGHT = 13 * TILES_SIZE;
+							WIDTH = TILES_SIZE * 31/2,//chieu dai
+							HEIGHT = 13 * TILES_SIZE;//chieu rong
 
 	public static int SCALE = 3;
 	
@@ -155,6 +155,11 @@ public class Game extends Canvas {
 					--_screenDelay;
 			}
 		}
+	}
+
+	public void run() {
+		_running = true;
+		_paused = false;
 	}
 	
 	public static double getBomberSpeed() {
