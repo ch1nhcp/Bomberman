@@ -32,13 +32,22 @@ public class Board implements IRender {
     protected Game _game;
     protected Keyboard _input;
     protected Screen _screen;
+    private String Persion = "one";
+
+    public String getPersion() {
+        return Persion;
+    }
+
+    public void setPersion(String persion) {
+        Persion = persion;
+    }
 
     public Entity[] _entities;
     public List<Character> _characters = new ArrayList<>();
     protected List<Bomb> _bombs = new ArrayList<>();
     private List<Message> _messages = new ArrayList<>();
 
-    private int _screenToShow = -1; //1:endgame, 2:changelevel, 3:paused
+    private int _screenToShow = -1;
 
     private int _time = Game.TIME;
     private int _points = Game.POINTS;
@@ -48,12 +57,12 @@ public class Board implements IRender {
         _input = input;
         _screen = screen;
 
-        loadLevel(1); //start in level 1
+        loadLevel(1); //bat dau tu level 1
     }
 
     // Khai bao nhac nen
     public static AudioClip Sound() {
-        File file = new File("res/sound/soundtrack.wav");
+        File file = new File("resource/sound/soundtrack.wav");
         URL url = null;
         if (file.canRead()) {
             try {

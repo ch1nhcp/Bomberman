@@ -23,17 +23,19 @@ public class Bomber extends Character {
     private List<Bomb> _bombs;
     protected Keyboard _input;
     public static List<Item> _items = new ArrayList<Item>();//xu li Item
+    public String _name;
     /**
      * nếu giá trị này < 0 thì cho phép đặt đối tượng Bomb tiếp theo,
      * cứ mỗi lần đặt 1 Bomb mới, giá trị này sẽ được reset về 0 và giảm dần trong mỗi lần update()
      */
     protected int _timeBetweenPutBombs = 0;
 
-    public Bomber(int x, int y, Board board) {
+    public Bomber(int x, int y, Board board, String name) {
         super(x, y, board);
         _bombs = _board.getBombs();
         _input = _board.getInput();
         _sprite = Sprite.player_right;
+        _name = name;//
     }
 
     @Override
@@ -80,16 +82,34 @@ public class Bomber extends Character {
         // TODO: _timeBetweenPutBombs dùng để ngăn chặn Bomber đặt 2 Bomb cùng tại 1 vị trí trong 1 khoảng thời gian quá ngắn
         // TODO: nếu 3 điều kiện trên thỏa mãn thì thực hiện đặt bom bằng placeBomb()
         // TODO: sau khi đặt, nhớ giảm số lượng Bomb Rate và reset _timeBetweenPutBombs về 0
-        if(_input.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
-			
-			int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
-			int yt = Coordinates.pixelToTile( (_y + _sprite.getSize() / 2) - _sprite.getSize() ); //subtract half player height and minus 1 y position
-			
-			placeBomb(xt,yt);
-			Game.addBombRate(-1);
-			
-			_timeBetweenPutBombs = 30;
-		}
+
+        if (_name.equals("player1")) {
+
+            if (_input.enter && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
+
+                int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
+                int yt = Coordinates.pixelToTile((_y + _sprite.getSize() / 2) - _sprite.getSize()); //subtract half player height and minus 1 y position
+
+                placeBomb(xt, yt);
+                Game.addBombRate(-1);
+
+                _timeBetweenPutBombs = 30;
+            }
+        }
+
+        if (_name.equals("player2")) {
+
+            if (_input.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
+
+                int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
+                int yt = Coordinates.pixelToTile((_y + _sprite.getSize() / 2) - _sprite.getSize()); //subtract half player height and minus 1 y position
+
+                placeBomb(xt, yt);
+                Game.addBombRate(-1);
+
+                _timeBetweenPutBombs = 30;
+            }
+        }
     }
 
     protected void placeBomb(int x, int y) {
@@ -133,11 +153,19 @@ public class Bomber extends Character {
         // TODO: xử lý nhận tín hiệu điều khiển hướng đi từ _input và gọi move() để thực hiện di chuyển
         // TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
         int xa = 0, ya = 0;
-		if(_input.up) ya--;
-		if(_input.down) ya++;
-		if(_input.left) xa--;
-		if(_input.right) xa++;
-		
+        if (_name.equals("player1")) {
+            if (_input.up) ya--;
+            if (_input.down) ya++;
+            if (_input.left) xa--;
+            if (_input.right) xa++;
+        }
+
+        if (_name.equals("player2")) {
+            if (_input.W) ya--;
+            if (_input.S) ya++;
+            if (_input.A) xa--;
+            if (_input.D) xa++;
+        }
 		if(xa != 0 || ya != 0)  {
 			move(xa * Game.getBomberSpeed(), ya * Game.getBomberSpeed());
 			_moving = true;

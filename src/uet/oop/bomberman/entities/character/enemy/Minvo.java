@@ -8,7 +8,7 @@ public class Minvo extends Enemy {
 	
 	
 	public Minvo(int x, int y, Board board) {
-		super(x, y, board, Sprite.minvo_dead, 200, 800);
+		super(x, y, board, Sprite.minvo_dead, 1.50, 800);
 		
 		_sprite = Sprite.minvo_right1;
 		

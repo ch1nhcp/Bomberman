@@ -89,10 +89,10 @@ public class Screen {
     }
 
     public void drawEndGame(Graphics g, int points) {
-        g.setColor(Color.black);
+        g.setColor(Color.pink);
         g.fillRect(0, 0, getRealWidth(), getRealHeight());
 
-        Font font = new Font("Arial", Font.PLAIN, 20 * Game.SCALE);
+        Font font = new Font("Arial", Font.BOLD, 20 * Game.SCALE);
         g.setFont(font);
         g.setColor(Color.white);
         drawCenteredString("GAME OVER", getRealWidth(), getRealHeight(), g);
@@ -101,16 +101,26 @@ public class Screen {
         g.setFont(font);
         g.setColor(Color.yellow);
         drawCenteredString("Điểm: " + points, getRealWidth(), getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
+
+        font = new Font("Arial", Font.PLAIN, 6 * Game.SCALE);
+        g.setFont(font);
+        g.setColor(Color.red);
+        drawCenteredString("Ctrl + N để chơi lại", getRealWidth(), getRealHeight()+ (Game.TILES_SIZE * 5) * Game.SCALE, g);
+        //TODO can them nut Choi lai/Exit
     }
 
     public void drawChangeLevel(Graphics g, int level) {
-        g.setColor(Color.black);//màu nền giao diện
+        g.setColor(Color.PINK);//màu nền giao diện
         g.fillRect(0, 0, getRealWidth(), getRealHeight());
 
         Font font = new Font("Arial", Font.PLAIN, 20 * Game.SCALE);
         g.setFont(font);
         g.setColor(Color.white);//màu chữ giao diện
         drawCenteredString("Level " + level, getRealWidth(), getRealHeight(), g);
+//        BufferedImage myPicture = ImageIO.read(new File("path-to-file"));
+//        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+//        add(picLabel);
+        //todo Thay anh nen
 
     }
 

@@ -3,8 +3,12 @@ package uet.oop.bomberman.gui;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.gui.Menu.Menu;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * Swing Frame chứa toàn bộ các component
@@ -18,6 +22,16 @@ public class Frame extends JFrame {
     private Game _game;
 
     public Frame() {
+
+        //Tao icon cho game
+        URL a = Frame.class.getResource("/bombermanIcon.png");
+        try {
+            BufferedImage image = ImageIO.read(a);
+            setIconImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }//ketthuc
+
         setJMenuBar(new Menu(this));
         _containerpane = new JPanel(new BorderLayout());
         _gamepane = new GamePanel(this);
@@ -37,6 +51,14 @@ public class Frame extends JFrame {
         setVisible(true);
 
         _game.start();
+    }
+
+    public void getPersonFrame(String person){
+        _game.getBoard().setPersion(person);
+        _game.getBoard().loadLevel(1);
+    }
+    public void addBombRateFrame(){
+        _game.addBombRate(1);
     }
 
     public void setTime(int time) {

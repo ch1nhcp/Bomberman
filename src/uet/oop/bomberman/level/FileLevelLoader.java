@@ -39,7 +39,7 @@ public class FileLevelLoader extends LevelLoader {
         // TODO: cập nhật các giá trị đọc được vào _width, _height, _level, _map
         List<String> list = new ArrayList<>();
         try {
-            FileReader fr = new FileReader("res\\levels\\Level" + level + ".txt");//doc tep luu map
+            FileReader fr = new FileReader("resource\\levels\\Level" + _board.getPersion() + level + ".txt");//doc tep luu map
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             while (!line.equals("")) {
@@ -101,8 +101,14 @@ public class FileLevelLoader extends LevelLoader {
                         break;
                     // Thêm Bomber
                     case 'p':
-                        _board.addCharacter(new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
+                        _board.addCharacter(new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board, "player1"));
                         Screen.setOffset(0, 0);
+                        _board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass));
+                        break;
+                    //Them Bomber 2
+                    case 'o':
+                        _board.addCharacter(new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board, "player2"));
+                        //Screen.setOffset(0, 0);
                         _board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass));
                         break;
 

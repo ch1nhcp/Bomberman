@@ -1,3 +1,4 @@
+//Toạ độ
 package uet.oop.bomberman.level;
 
 import uet.oop.bomberman.Game;

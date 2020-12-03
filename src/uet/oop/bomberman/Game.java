@@ -15,15 +15,13 @@ import java.awt.image.DataBufferInt;
  */
 public class Game extends Canvas {
 
-    
-
 	public static final int TILES_SIZE = 16,
-							WIDTH = TILES_SIZE * 31/2,//chieu dai
+							WIDTH = TILES_SIZE * (31/2),//chieu dai
 							HEIGHT = 13 * TILES_SIZE;//chieu rong
 
-	public static int SCALE = 3;
+	public static int SCALE = 4; //ti le man hinh
 	
-	public static final String TITLE = "BombermanGame";
+	public static final String TITLE = "Bomberman Remake";
 	
 	private static final int BOMBRATE = 1;
 	private static final int BOMBRADIUS = 1;
@@ -147,7 +145,7 @@ public class Game extends Canvas {
 				_frame.setTime(_board.subtractTime());
 				_frame.setPoints(_board.getPoints());
 				timer += 1000;
-				_frame.setTitle(TITLE + " | " + updates + " rate, " + frames + " fps");
+				//_frame.setTitle(TITLE + " | " + updates + " rate, " + frames + " fps");//hien thi thanh fps
 				updates = 0;
 				frames = 0;
 				
@@ -210,6 +208,6 @@ public class Game extends Canvas {
     }
 
     public static void setBomberSpeed(double bomberSpeed) {
-        Game.bomberSpeed = bomberSpeed;
+		Game.bomberSpeed = bomberSpeed;
     }
 }

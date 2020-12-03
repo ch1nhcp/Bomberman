@@ -9,11 +9,11 @@ public class Kondoria extends Enemy {
 	
 	
 	public Kondoria(int x, int y, Board board) {
-		super(x, y, board, Sprite.kondoria_dead, 100, 1000);
+		super(x, y, board, Sprite.kondoria_dead, 0.2, 1000);
 		
 		_sprite = Sprite.kondoria_right1;
 		
-		_ai = new AIMedium(_board.getBomber(), this); //TODO: implement AIHigh
+		_ai = new AIMedium(_board.getBomber(), this);
 		_direction  = _ai.calculateDirection();
 	}
 	/*
