@@ -1,7 +1,8 @@
 # Bài tập lớn OOP - Bomberman Game
 
 Các bạn ơi, nếu thấy repo này hữu ích vui lòng cho mình xin 1 star nhé <3 
-Trong dự án này, mình sẽ viết một phiên bản Java mô phỏng lại trò chơi [Bomberman](https://www.youtube.com/watch?v=mKIOVwqgSXM) kinh điển của NES với đa dạng chức năng hơi, cũng như thay đổi 1 chút về giao diện. 
+
+Trong dự án này, mình sẽ viết một phiên bản Java mô phỏng lại trò chơi [Bomberman](https://www.youtube.com/watch?v=mKIOVwqgSXM) kinh điển của NES với đa dạng chức năng hơn, cũng như thay đổi 1 chút về giao diện. 
 
 <img src="resource/demo.png" alt="drawing" width="400"/>
 
